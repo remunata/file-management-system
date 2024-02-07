@@ -8,5 +8,6 @@ public interface FileSystem {
     void initialize(String path);
     void create() throws AlreadyExistsException, IOException;
     void displayContent();
+    void update(String options);
     String getPath();
 }
