@@ -36,6 +36,11 @@ public class Folder implements FileSystem {
     }
 
     @Override
+    public void update(String content) {
+
+    }
+
+    @Override
     public String getPath() {
         return folder.getPath();
     }
