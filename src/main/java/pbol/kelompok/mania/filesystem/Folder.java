@@ -41,6 +41,11 @@ public class Folder implements FileSystem {
     }
 
     @Override
+    public void delete(String name) {
+        System.out.println("Deleting folder " + name);
+    }
+
+    @Override
     public String getPath() {
         return folder.getPath();
     }

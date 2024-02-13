@@ -1,6 +1,7 @@
 package pbol.kelompok.mania;
 
 import pbol.kelompok.mania.handler.CommandHandler;
+import pbol.kelompok.mania.handler.CommandHandlerImpl;
 
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CommandHandler commandHandler = CommandHandler.getInstance();
+        CommandHandler commandHandler = CommandHandlerImpl.getInstance();
 
         System.out.println("Starting File Management System");
         System.out.println("Type \"help\" to show all commands");
@@ -21,8 +22,6 @@ public class Main {
 
             String command = scanner.nextLine();
             String[] commandArr = command.split(" ", 2);
-
-
 
             switch (commandArr[0]) {
                 case "help" -> commandHandler.help();
