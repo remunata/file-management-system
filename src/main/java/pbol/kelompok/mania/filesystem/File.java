@@ -51,6 +51,11 @@ public class File implements FileSystem {
     }
 
     @Override
+    public void delete(String name) {
+        System.out.println("Deleting file " + name);
+    }
+
+    @Override
     public String getPath() {
         return null;
     }

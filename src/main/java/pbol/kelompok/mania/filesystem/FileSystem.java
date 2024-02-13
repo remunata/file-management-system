@@ -9,5 +9,6 @@ public interface FileSystem {
     void create() throws AlreadyExistsException, IOException;
     void displayContent();
     void update(String options);
+    void delete(String name);
     String getPath();
 }
