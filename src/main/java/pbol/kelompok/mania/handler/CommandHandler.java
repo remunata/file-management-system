@@ -14,11 +14,19 @@ import java.util.List;
 public class CommandHandler {
     private final FileSystemFactory factory;
     private final FileSystem currentDir;
+    private static CommandHandler instance;
 
-    public CommandHandler() {
+    private CommandHandler() {
         factory = new FileSystemFactory();
         currentDir = factory.getFileSystem(FileSystemType.FOLDER);
         currentDir.initialize(System.getProperty("user.dir"));
+    }
+
+    public static CommandHandler getInstance() {
+        if (instance == null) {
+            instance = new CommandHandler();
+        }
+        return instance;
     }
 
     public void help() {
@@ -108,5 +116,14 @@ public class CommandHandler {
         FileSystem file = factory.getFileSystem(FileSystemType.FILE);
         file.initialize(currentDir.getPath() + "/" + args[0]);
         file.update(args[1]);
+    }
+
+    public void rm(String arg) {
+        String fileName = arg.trim();
+        System.out.println("Removing file " + fileName);
+    }
+
+    public void mv(String arg) {
+        System.out.println("Moving directory" + arg.trim());
     }
 }
