@@ -13,7 +13,7 @@ import java.util.List;
 public class CommandHandlerImpl implements CommandHandler {
     private final FileSystemFactory factory;
     private final FileSystem currentDir;
-    private static CommandHandlerImpl instance;
+    private static CommandHandler instance;
 
     private CommandHandlerImpl() {
         factory = new FileSystemFactory();
@@ -21,7 +21,7 @@ public class CommandHandlerImpl implements CommandHandler {
         currentDir.initialize(System.getProperty("user.dir"));
     }
 
-    public static CommandHandlerImpl getInstance() {
+    public static CommandHandler getInstance() {
         if (instance == null) {
             instance = new CommandHandlerImpl();
         }
